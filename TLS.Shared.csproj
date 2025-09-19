@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+	  <TargetFramework>netstandard2.0</TargetFramework>
+	  <LangVersion>9.0</LangVersion>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GameManagedDir>C:\Program Files (x86)\Steam\steamapps\common\The Last Spell\The Last Spell_Data\Managed</GameManagedDir>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="TPLib">
+      <HintPath>$(GameManagedDir)\TPLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
